@@ -43,16 +43,16 @@ export default async function Home() {
       <div className="marquee-container">
         <div className="marquee-content">
           {/* Duplicate content twice for smooth infinite scroll */}
-          <span>✦ Upcoming Heritage Walk on 15th May</span>
-          <span>✦ New Oral Histories Added</span>
-          <span>✦ Report Heritage Threats Anonymously</span>
-          <span>✦ Join the Youth Ambassador Program</span>
-          <span>✦ Preserve Our Living Archive</span>
-          <span>✦ Upcoming Heritage Walk on 15th May</span>
-          <span>✦ New Oral Histories Added</span>
-          <span>✦ Report Heritage Threats Anonymously</span>
-          <span>✦ Join the Youth Ambassador Program</span>
-          <span>✦ Preserve Our Living Archive</span>
+          <span><i>✦</i> Upcoming Heritage Walk on 15th May</span>
+          <span><i>✦</i> New Oral Histories Added</span>
+          <span><i>✦</i> Report Heritage Threats Anonymously</span>
+          <span><i>✦</i> Join the Youth Ambassador Program</span>
+          <span><i>✦</i> Preserve Our Living Archive</span>
+          <span><i>✦</i> Upcoming Heritage Walk on 15th May</span>
+          <span><i>✦</i> New Oral Histories Added</span>
+          <span><i>✦</i> Report Heritage Threats Anonymously</span>
+          <span><i>✦</i> Join the Youth Ambassador Program</span>
+          <span><i>✦</i> Preserve Our Living Archive</span>
         </div>
       </div>
 
