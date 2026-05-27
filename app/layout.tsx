@@ -14,7 +14,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Jammu Region - A Living Archive',
+  title: 'Devika Project - A Living Archive',
   description: 'Safeguarding tangible and intangible heritage through community custodianship and youth engagement.',
 }
 
@@ -29,7 +29,7 @@ export default function RootLayout({
         <nav className="navbar">
           <div className="nav-container">
             <div className="nav-logo">
-              <Link href="/">Jammu Region <span>– A Living Archive</span></Link>
+              <Link href="/">Devika Project <span>– A Living Archive</span></Link>
             </div>
             <div className="nav-links">
               <Link href="/">Home</Link>
