@@ -34,6 +34,12 @@ export default function RootLayout({
             <div className="nav-links">
               <Link href="/">Home</Link>
               <Link href="/sites">Explore Sites</Link>
+              <Link href="/map">Map</Link>
+              <Link href="/inventory">Inventory</Link>
+              <Link href="/voices">Voices</Link>
+              <Link href="/policy">Policy</Link>
+              <Link href="/events">Events</Link>
+              <Link href="/about">About</Link>
               <Link href="/blog">Blog</Link>
             </div>
             <div className="nav-lang">
