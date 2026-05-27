@@ -29,7 +29,12 @@ export default function RootLayout({
         <nav className="navbar">
           <div className="nav-container">
             <div className="nav-logo">
-              <Link href="/">Devika Project <span>– A Living Archive</span></Link>
+              <Link href="/" className="nav-logo-link">
+                <img src="/logo.png" alt="Devika Logo" className="nav-logo-img" />
+                <div className="nav-logo-text">
+                  Devika Project <span className="nav-logo-sub">– A Living Archive</span>
+                </div>
+              </Link>
             </div>
             <div className="nav-links">
               <Link href="/">Home</Link>
