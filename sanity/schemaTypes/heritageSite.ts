@@ -40,7 +40,6 @@ export default defineType({
         list: [
           { title: 'Jammu', value: 'Jammu' },
           { title: 'Kashmir', value: 'Kashmir' },
-          { title: 'Ladakh', value: 'Ladakh' },
         ],
         layout: 'radio',
       },
@@ -74,10 +73,6 @@ export default defineType({
           { title: 'Baramulla', value: 'Baramulla' },
           { title: 'Kupwara', value: 'Kupwara' },
           { title: 'Bandipora', value: 'Bandipora' },
-          
-          // Ladakh Region Districts
-          { title: 'Leh', value: 'Leh' },
-          { title: 'Kargil', value: 'Kargil' },
         ],
       },
     }),

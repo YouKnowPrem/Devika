@@ -77,7 +77,7 @@ export default function WorkInProgress({ pageName, iconType }: WorkInProgressPro
 
       <p className="animate-fade-up animate-delay-2" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', lineHeight: '1.7', marginBottom: '3rem' }}>
         Our youth ambassadors and local community curators are gathering cultural artifacts, historical records, 
-        and oral histories from districts across Jammu, Kashmir, and Ladakh. This section is currently under active curation.
+        and oral histories from districts across Jammu and Kashmir. This section is currently under active curation.
       </p>
 
       {/* Back to active paths */}

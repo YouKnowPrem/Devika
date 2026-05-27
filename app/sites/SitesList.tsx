@@ -25,8 +25,7 @@ interface SitesListProps {
 // Districts mapped by Region for hierarchical filtering
 const REGION_DISTRICTS: Record<string, string[]> = {
   Jammu: ['Jammu', 'Samba', 'Kathua', 'Udhampur', 'Reasi', 'Rajouri', 'Poonch', 'Ramban', 'Doda', 'Kishtwar'],
-  Kashmir: ['Srinagar', 'Budgam', 'Ganderbal', 'Anantnag', 'Pulwama', 'Shopian', 'Kulgam', 'Baramulla', 'Kupwara', 'Bandipora'],
-  Ladakh: ['Leh', 'Kargil']
+  Kashmir: ['Srinagar', 'Budgam', 'Ganderbal', 'Anantnag', 'Pulwama', 'Shopian', 'Kulgam', 'Baramulla', 'Kupwara', 'Bandipora']
 }
 
 export default function SitesList({ sites = [] }: SitesListProps) {
@@ -107,7 +106,7 @@ export default function SitesList({ sites = [] }: SitesListProps) {
         <h1>Historical & Cultural Sites</h1>
         <p>
           Explore the tangible heritage, ancient temples, shrines, and monuments 
-          scattered across the districts of Jammu, Kashmir, and Ladakh.
+          scattered across the districts of Jammu and Kashmir.
         </p>
       </header>
 
@@ -145,7 +144,7 @@ export default function SitesList({ sites = [] }: SitesListProps) {
           <div className="filter-section" style={{ flexGrow: 1 }}>
             <span className="filter-label">Filter by Region</span>
             <div className="region-buttons">
-              {['All', 'Jammu', 'Kashmir', 'Ladakh'].map((region) => (
+              {['All', 'Jammu', 'Kashmir'].map((region) => (
                 <button
                   key={region}
                   className={`region-btn ${selectedRegion === region ? 'active' : ''}`}
