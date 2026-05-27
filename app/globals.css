@@ -1044,3 +1044,275 @@ a {
   text-transform: uppercase;
   color: var(--text-secondary);
 }
+
+/* WIKIPEDIA-STYLE ENCYCLOPEDIA LAYOUT */
+.wiki-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+  .wiki-grid {
+    grid-template-columns: 2.3fr 1fr;
+  }
+}
+
+.wiki-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Encyclopedia Infobox (Quick Facts Sheet) */
+.wiki-infobox {
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.wiki-infobox-header {
+  border-bottom: 2px solid var(--text-primary);
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+
+.wiki-infobox-title {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.wiki-infobox-img-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #e4dec9;
+}
+
+.wiki-infobox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wiki-infobox-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wiki-infobox-row {
+  border-bottom: 1px solid rgba(44, 40, 37, 0.08);
+}
+
+.wiki-infobox-row:last-child {
+  border-bottom: none;
+}
+
+.wiki-infobox-label {
+  padding: 0.75rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  width: 35%;
+  vertical-align: top;
+  letter-spacing: 0.03em;
+}
+
+.wiki-infobox-value {
+  padding: 0.75rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  vertical-align: top;
+}
+
+/* Dynamic Table of Contents (TOC) */
+.wiki-toc {
+  background: rgba(44, 40, 37, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  max-width: 450px;
+  margin-bottom: 2.5rem;
+}
+
+.wiki-toc-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wiki-toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.wiki-toc-item {
+  font-size: 0.9rem;
+}
+
+.wiki-toc-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.wiki-toc-link:hover {
+  text-decoration: underline;
+  color: var(--text-primary);
+}
+
+.wiki-toc-link.subheading {
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Interactive Image Carousel (Mid-Content) */
+.wiki-carousel {
+  position: relative;
+  width: 100%;
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 3rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.wiki-carousel-slide {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wiki-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.wiki-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.wiki-carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.wiki-carousel-btn.prev {
+  left: 1.25rem;
+}
+
+.wiki-carousel-btn.next {
+  right: 1.25rem;
+}
+
+.wiki-carousel-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.wiki-carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+  color: #fff;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+}
+
+.wiki-carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.wiki-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.wiki-carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wiki-carousel-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.wiki-carousel-counter {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50px;
+  z-index: 10;
+  letter-spacing: 0.05em;
+}

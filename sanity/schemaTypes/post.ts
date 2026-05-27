@@ -62,6 +62,50 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'era',
+      title: 'Historical Era/Period',
+      type: 'string',
+      description: 'e.g. 9th Century AD, Dogra Dynasty, Mughal Rule',
+    }),
+    defineField({
+      name: 'significance',
+      title: 'Cultural Significance',
+      type: 'string',
+      description: 'e.g. Archaeological Monument, Sufi Pilgrimage Site, Oral Tradition',
+    }),
+    defineField({
+      name: 'locationDetails',
+      title: 'Specific Location',
+      type: 'string',
+      description: 'e.g. Anantnag District, Kashmir Valley',
+    }),
+    defineField({
+      name: 'custodians',
+      title: 'Key Custodians',
+      type: 'string',
+      description: 'e.g. Archaeological Survey of India (ASI), Local Community Trust',
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Image Gallery (Carousel)',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              description: 'A short descriptive caption for this slideshow image.',
+            },
+          ],
+        },
+      ],
+      description: 'Multiple images that will render as an interactive carousel in the middle of the article.',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',
