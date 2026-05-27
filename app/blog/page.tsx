@@ -11,13 +11,12 @@ async function getPosts() {
       slug,
       mainImage,
       publishedAt,
-      region,
       tags,
       excerpt
     }`
     return await client.fetch(query)
   } catch (e) {
-    console.error('Failed to fetch posts from Sanity:', e)
+    console.error('Failed to fetch blog posts from Sanity:', e)
     return []
   }
 }

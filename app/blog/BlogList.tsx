@@ -10,7 +10,6 @@ interface Post {
   slug: { current: string };
   mainImage?: any;
   publishedAt?: string;
-  region?: string;
   tags?: string[];
   excerpt?: string;
 }
@@ -21,10 +20,9 @@ interface BlogListProps {
 
 export default function BlogList({ posts = [] }: BlogListProps) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedRegion, setSelectedRegion] = useState('All')
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
-  // Extract all unique tags across all posts
+  // Extract unique tags
   const allTags = Array.from(
     new Set(
       posts
@@ -33,31 +31,23 @@ export default function BlogList({ posts = [] }: BlogListProps) {
     )
   ).sort()
 
-  // Filter logic
+  // Filter posts
   const filteredPosts = posts.filter((post) => {
-    // 1. Region filter
-    if (selectedRegion !== 'All') {
-      if (!post.region || post.region.toLowerCase() !== selectedRegion.toLowerCase()) {
-        return false
-      }
-    }
-
-    // 2. Tag filter
+    // 1. Tag filter
     if (selectedTag) {
       if (!post.tags || !post.tags.some(t => t.toLowerCase() === selectedTag.toLowerCase())) {
         return false
       }
     }
 
-    // 3. Text query search (matches title, excerpt, region, or tags)
+    // 2. Text search matching
     if (searchQuery.trim() !== '') {
       const query = searchQuery.toLowerCase().trim()
       const matchesTitle = post.title?.toLowerCase().includes(query)
       const matchesExcerpt = post.excerpt?.toLowerCase().includes(query)
-      const matchesRegion = post.region?.toLowerCase().includes(query)
       const matchesTags = post.tags?.some(tag => tag.toLowerCase().includes(query))
 
-      return matchesTitle || matchesExcerpt || matchesRegion || matchesTags
+      return matchesTitle || matchesExcerpt || matchesTags
     }
 
     return true
@@ -72,34 +62,25 @@ export default function BlogList({ posts = [] }: BlogListProps) {
     })
   }
 
-  const handleTagClick = (tag: string) => {
-    if (selectedTag === tag) {
-      setSelectedTag(null) // deselect if clicked again
-    } else {
-      setSelectedTag(tag)
-    }
-  }
-
   const handleClearFilters = () => {
     setSearchQuery('')
-    setSelectedRegion('All')
     setSelectedTag(null)
   }
 
   return (
     <div className="blog-container">
-      {/* HEADER SECTION */}
+      {/* HEADER */}
       <header className="blog-header animate-fade-up">
-        <h1>Living Archive</h1>
+        <h1>Stories & Updates</h1>
         <p>
-          Discover, read, and explore the deep-seated history, rich culture, 
-          and oral traditions of Jammu, Kashmir, and Ladakh.
+          Read editorial stories, logs of recent heritage walks, announcements, 
+          and community preservation diaries from across Jammu and Kashmir.
         </p>
       </header>
 
-      {/* SEARCH AND FILTERS */}
+      {/* FILTER BOX */}
       <section className="search-filter-wrapper animate-fade-up animate-delay-1">
-        {/* Real-time Text Search Bar */}
+        {/* Real-time search */}
         <div className="search-box-container">
           <svg
             className="search-icon-svg"
@@ -118,41 +99,22 @@ export default function BlogList({ posts = [] }: BlogListProps) {
           <input
             type="text"
             className="search-input"
-            placeholder="Search by article title, tag, history or keyword..."
+            placeholder="Search blogs by title, tags or content keywords..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
-        {/* Search by Region Filter (Dropdown/Radio equivalent visually) */}
-        <div className="filter-section">
-          <span className="filter-label">Search by Region</span>
-          <div className="region-buttons">
-            {['All', 'Jammu', 'Kashmir', 'Ladakh'].map((region) => (
-              <button
-                key={region}
-                className={`region-btn ${selectedRegion === region ? 'active' : ''}`}
-                onClick={() => {
-                  setSelectedRegion(region)
-                  setSelectedTag(null) // Clear tag selections when region switches for cleaner user paths
-                }}
-              >
-                {region === 'All' ? '✦ All Regions' : region}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Category Tags Suggestion Pills */}
+        {/* Category Tag badging */}
         {allTags.length > 0 && (
           <div className="filter-section">
-            <span className="filter-label">Filter by Category Tags</span>
+            <span className="filter-label">Filter by Topic</span>
             <div className="tag-filters">
               {allTags.map((tag) => (
                 <button
                   key={tag}
                   className={`tag-badge-btn ${selectedTag === tag ? 'active' : ''}`}
-                  onClick={() => handleTagClick(tag)}
+                  onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
                 >
                   #{tag}
                 </button>
@@ -161,8 +123,8 @@ export default function BlogList({ posts = [] }: BlogListProps) {
           </div>
         )}
 
-        {/* Clear filters utility button */}
-        {(searchQuery || selectedRegion !== 'All' || selectedTag) && (
+        {/* Clear Filters */}
+        {(searchQuery || selectedTag) && (
           <div style={{ alignSelf: 'flex-end' }}>
             <button
               onClick={handleClearFilters}
@@ -182,21 +144,21 @@ export default function BlogList({ posts = [] }: BlogListProps) {
         )}
       </section>
 
-      {/* ARTICLES GRID SECTION */}
+      {/* BLOG GRID */}
       <section className="animate-fade-up animate-delay-2">
         {filteredPosts.length === 0 ? (
           <div className="no-results">
-            <h3>No Records Found</h3>
+            <h3>No Blog Posts Found</h3>
             <p>
-              We couldn't find any historical records or cultural posts matching your search criteria. 
-              Try searching a different region or clearing the active text filter.
+              We couldn't find any articles matching your search query or topic criteria. 
+              Try searching something else or reset the filter pills.
             </p>
             <button
               onClick={handleClearFilters}
               className="btn btn-blue"
               style={{ marginTop: '1.5rem', padding: '0.5rem 1.5rem', fontSize: '0.85rem' }}
             >
-              Reset Search & Filters
+              Reset Filters
             </button>
           </div>
         ) : (
@@ -228,11 +190,8 @@ export default function BlogList({ posts = [] }: BlogListProps) {
                           background: '#e4dec9'
                         }}
                       >
-                        No image available
+                        No visual uploaded
                       </div>
-                    )}
-                    {post.region && (
-                      <span className="blog-card-region">{post.region}</span>
                     )}
                   </div>
 
@@ -246,7 +205,7 @@ export default function BlogList({ posts = [] }: BlogListProps) {
                     </Link>
 
                     <p className="blog-card-excerpt">
-                      {post.excerpt || 'Read more about this Jammu & Kashmir cultural story.'}
+                      {post.excerpt || 'Read the full stories and preservation journals.'}
                     </p>
 
                     {post.tags && post.tags.length > 0 && (
