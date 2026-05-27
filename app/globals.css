@@ -1391,3 +1391,31 @@ a {
 .wiki-select:hover {
   border-color: var(--text-primary);
 }
+
+/* Footer Credit styling */
+.footer-credit {
+  color: var(--accent-blue);
+  font-weight: 700;
+  transition: all 0.25s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-credit::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: -1px;
+  left: 0;
+  background-color: var(--accent-orange);
+  transition: width 0.25s ease;
+}
+
+.footer-credit:hover {
+  color: var(--accent-orange) !important;
+}
+
+.footer-credit:hover::after {
+  width: 100%;
+}

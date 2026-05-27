@@ -70,7 +70,7 @@ export default function RootLayout({
             </div>
           </div>
           <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textAlign: 'center', marginTop: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '1rem', width: '100%' }}>
-            © 2026 All rights reserved. | Made with 💖 | By Prem
+            © 2026 All rights reserved. | Made with 💖 | By <Link href="https://webitup24.com" target="_blank" rel="noopener noreferrer" className="footer-credit">WebItUp24</Link>
           </div>
         </footer>
       </body>
