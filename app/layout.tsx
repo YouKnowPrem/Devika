@@ -32,14 +32,8 @@ export default function RootLayout({
               <Link href="/">Jammu Region <span>– A Living Archive</span></Link>
             </div>
             <div className="nav-links">
-              <Link href="/" className="active">Home</Link>
-              <Link href="/map">Map</Link>
-              <Link href="/inventory">Inventory</Link>
-              <Link href="/voices">Voices</Link>
-              <Link href="/youth">Youth</Link>
-              <Link href="/policy">Policy</Link>
-              <Link href="/events">Events</Link>
-              <Link href="/about">About</Link>
+              <Link href="/">Home</Link>
+              <Link href="/blog">Blog</Link>
             </div>
             <div className="nav-lang">
               <button className="lang-btn active">EN</button>

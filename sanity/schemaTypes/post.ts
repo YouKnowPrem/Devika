@@ -33,6 +33,35 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'region',
+      title: 'Region',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Jammu', value: 'Jammu' },
+          { title: 'Kashmir', value: 'Kashmir' },
+          { title: 'Ladakh', value: 'Ladakh' },
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+      },
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description: 'A brief description of the article used in lists or cards.',
+      rows: 3,
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',
